@@ -1,1 +1,1 @@
-# twist-of-fate
+Twist of Fate is a space for us to share our aesthetic and music taste. We aim to drop sets weekly. 
