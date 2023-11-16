@@ -7,12 +7,14 @@
   
   .text-container {
     display: flex;
-    animation: animateScroll 10s linear forwards infinite; /* Adjust duration as needed */
-    animation-play-state:infinite;
+    transform: translateX(calc(100vw));
+    animation: animateScroll 15s linear forwards infinite; /* Adjust duration as needed */
+    animation-play-state:running;
+    white-space: nowrap; 
   }
   
   .scrolling-text {
-    padding-right: 20px; /* Adjust spacing between texts */
+    padding-right: 30px; /* Adjust spacing between texts */
   }
 
   @keyframes animateScroll {

@@ -1,0 +1,16 @@
+/* CenteredImage.css */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+  .centered-image {
+    max-width: 100%; /* Ensure the image doesn't exceed its natural size */
+    max-height: 100%; /* Ensure the image doesn't exceed its natural size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+  }
