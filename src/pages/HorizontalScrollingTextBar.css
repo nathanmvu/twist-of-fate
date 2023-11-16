@@ -1,0 +1,26 @@
+/* HorizontalScrollingTextBar.css */
+
+.horizontal-scrolling-text-bar {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .text-container {
+    display: flex;
+    animation: animateScroll 10s linear forwards infinite; /* Adjust duration as needed */
+    animation-play-state:infinite;
+  }
+  
+  .scrolling-text {
+    padding-right: 20px; /* Adjust spacing between texts */
+  }
+
+  @keyframes animateScroll {
+    from{
+      transform: translateX(calc(100vw));
+    }
+    to {
+      transform: translateX(calc(-100%));
+    }
+    
+  }
