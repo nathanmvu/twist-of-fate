@@ -5,13 +5,14 @@ import React, { useState, useEffect } from 'react';
 // TODO: turn into marquee, have text constantly wrap?
 import HeaderImage from '../components/HeaderImage/HeaderImage';
 import HorizontalScrollingTextBar from '../components/HorizontalScrollingTextBar/HorizontalScrollingTextBar';
+import MusicPlayer from '../components/MusicPlayer/MusicPlayer';
 
 const Home = () => {
-  const text = ["a twist of fate has brought you here, where will u go next?"];
   return (
-    <div>
+    <div className="home flex flex-col h-screen">
       <HeaderImage />
-      <HorizontalScrollingTextBar texts={text} />       
+      <HorizontalScrollingTextBar />
+      <MusicPlayer />
     </div>
   )
 }
