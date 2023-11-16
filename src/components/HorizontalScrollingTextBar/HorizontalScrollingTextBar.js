@@ -1,11 +1,13 @@
 import React from 'react';
 import './HorizontalScrollingTextBar.css';
 
-const HorizontalScrollingTextBar = ({ texts }) => {
+const HorizontalScrollingTextBar = () => {
+  const scrollingText = ["a twist of fate has brought you here, where will u go next?"];
+
   return (
     <div className="horizontal-scrolling-text-bar">
       <div className="text-container">
-        {texts.map((text, index) => (
+        {scrollingText.map((text, index) => (
           <span key={index} className="scrolling-text">
             {text}
           </span>
