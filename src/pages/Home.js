@@ -12,9 +12,7 @@ const Home = () => {
     <div className="home flex flex-col h-screen">
       <HeaderImage />
       <HorizontalScrollingTextBar />
-      <div className="flex-grow flex justify-center items-center">
-        <MusicPlayer />
-      </div>
+      <MusicPlayer />
     </div>
   )
 }

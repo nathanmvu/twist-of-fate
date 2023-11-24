@@ -1,3 +1,49 @@
-.loadTrackBtn {
-  background-color: #F2D88F;
+/* Main player container */
+.rhap_container {
+  border-radius: 30px;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: flex-start; /* Align items to the start */
+  padding: 1rem; /* Adjust padding as needed */
+}
+
+.rhap_main {
+  flex-direction: row; /* Arrange children in a row */
+  align-items: center; /* Center items vertically */
+  justify-content: flex-start; /* Start aligning items from the left */
+  width: 100%; /* Full width */
+  gap: 1rem; /* Space between items */
+}
+
+/* Main controls (play/pause) section */
+.rhap_stacked .rhap_controls-section {
+  width: auto;
+  margin-top: 0;
+  flex-grow: 0;
+  order: 1;
+}
+
+/* Progress section */
+.rhap_progress-section {
+  order: 2;
+}
+
+/* Hide rewind and forward buttons */
+.rhap_rewind-button,
+.rhap_forward-button {
+  display: none;
+}
+
+button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button {
+  color: #C90000;
+}
+
+/* hiding audio player components */
+div .react-h5-audio-player .rhap_progress-section,
+div .react-h5-audio-player .rhap_progress-container,
+div .react-h5-audio-player .rhap_time,
+div .react-h5-audio-player .rhap_controls-section,
+button.rhap_button-clear.rhap_main-controls-button.rhap_forward-button,
+button.rhap_button-clear.rhap_main-controls-button.rhap_rewind-button {
+  display: none;
 }

@@ -1,49 +1,28 @@
 import React, { useState } from 'react';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css'; // default styles
 import './MusicPlayer.css';
 
 const MusicPlayer = () => {
-  const [trackUrl, setTrackUrl] = useState('');
-  const [embedUrl, setEmbedUrl] = useState('');
+  const audioSrc = 'https://storage.googleapis.com/music-playlists/%5BCR-34%5D%20Shinichi%20Atobe%20-%20Ship-Scope/thinredline';
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleUrlChange = (event) => {
-    setTrackUrl(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Update the embed URL
-    setEmbedUrl(`https://w.soundcloud.com/player/?url=${trackUrl}`);
+  const handlePlay = () => {
+      console.log("Playback started");
+      setIsPlaying(true);
   };
 
   return (
-    <div className="musicPlayer flex flex-col items-center w-full">
-      <div className="w-2/5"> {/* Smaller width for input form */}
-        <form onSubmit={handleSubmit} className="mb-4 flex">
-          <input
-            type="text"
-            value={trackUrl}
-            onChange={handleUrlChange}
-            className="urlInput border p-2 rounded flex-grow"
-            placeholder="Enter SoundCloud URL"
-          />
-          <button type="submit" className="loadTrackBtn bg-blue-500 text-white p-2 rounded ml-2">
-            Load Track
-          </button>
-        </form>
-      </div>
-      <div className="w-4/5"> {/* Larger width for embed */}
-        {embedUrl && (
-          <iframe
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            src={embedUrl}
-            title="SoundCloud Music Player"
-            className="w-full"
-          ></iframe>
-        )}
+    <div className="flex justify-center items-center vh-100"> {/* Full viewport height and center content */}
+      <div className="w-50"> {/* Wrapper with 50% width */}
+        <AudioPlayer
+          src={audioSrc}
+          onPlay={handlePlay}
+          customAdditionalControls={[]} // Remove additional controls like volume
+          customVolumeControls={[]} // Remove volume controls
+          // You can also add custom classNames here if needed
+        />
+        {isPlaying && <p className="tc">Now playing!</p>} {/* Centered text */}
       </div>
     </div>
   );
