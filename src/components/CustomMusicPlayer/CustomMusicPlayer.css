@@ -1,0 +1,42 @@
+.musicPlayerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to the exact center */
+  max-height: calc(100vh - 60px); /* Example: 60px accounts for header */
+  z-index: 10; /* Ensure it's above the background elements */
+  width: 100%; /* Adjust if necessary */
+}
+
+.audioPlayerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between items */
+  padding: 10px 20px 10px 10px; /* top, right, bottom, left */
+  border-radius: 30px;
+  border: 2px solid;
+  width: 40%;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #FF91FB;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.audioPlayerWrapper input[type='range'] {
+  width: 100%; 
+  cursor: pointer;
+}
+
+@media (max-width: 767px) { 
+  .audioPlayerWrapper {
+    width: 80%; 
+  }
+}

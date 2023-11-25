@@ -6,7 +6,7 @@ import './Home.css'
 // TODO: turn into marquee, have text constantly wrap?
 import HeaderImage from '../components/HeaderImage/HeaderImage';
 import HorizontalScrollingTextBar from '../components/HorizontalScrollingTextBar/HorizontalScrollingTextBar';
-import MusicPlayer from '../components/MusicPlayer/MusicPlayer';
+import MusicPlayer from '../components/CustomMusicPlayer/CustomMusicPlayer';
 
 const Home = () => {
   return (
