@@ -1,28 +1,36 @@
 /* HorizontalScrollingTextBar.css */
 
 .horizontal-scrolling-text-bar {
-    width: 100%;
-    overflow: hidden;
-  }
+  width: 100%;
+  overflow: hidden;
+  height: 80px;
+  background-color: #7C7C7C;
+  display: flex;
+  align-items: center;
+}
   
-  .text-container {
-    display: flex;
-    transform: translateX(calc(100vw));
-    animation: animateScroll 15s linear forwards infinite; /* Adjust duration as needed */
-    animation-play-state:running;
-    white-space: nowrap; 
-  }
-  
-  .scrolling-text {
-    padding-right: 30px; /* Adjust spacing between texts */
-  }
+.text-container {
+  display: flex;
+  animation: animateScroll 60s linear infinite; /* Adjust the duration */
+  white-space: nowrap; 
+}
 
-  @keyframes animateScroll {
-    from{
-      transform: translateX(calc(100vw));
-    }
-    to {
-      transform: translateX(calc(-100%));
-    }
-    
+.scrolling-text {
+  margin-right: 200px; /* Adjust spacing between texts */
+  color: #FF91FB;
+}
+
+.separator {
+  display: inline-block;
+  width: 100px; /* Adjust this value for more spacing */
+}
+
+@keyframes animateScroll {
+  from{
+    transform: translateX(calc(100vw));
   }
+  to {
+    transform: translateX(calc(-100%));
+  }
+  
+}
