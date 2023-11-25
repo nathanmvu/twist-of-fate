@@ -3,7 +3,7 @@
 .horizontal-scrolling-text-bar {
   width: 100%;
   overflow: hidden;
-  height: 80px;
+  height: 60px;
   background-color: #7C7C7C;
   display: flex;
   align-items: center;

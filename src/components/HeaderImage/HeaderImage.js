@@ -4,11 +4,11 @@ import './HeaderImage.css';
 
 const HeaderImage = () => {
   return (
-    <div className="headerImage">
+    <div className="headerContainer">
       <img
         src={title_image}
         alt="ascii title"
-        className="centered-image"
+        className="headerImage pa4"
       />
     </div>
   )
