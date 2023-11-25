@@ -5,6 +5,8 @@
   align-items: center; /* Align items vertically in the center */
   justify-content: flex-start; /* Align items to the start */
   padding: 1rem; /* Adjust padding as needed */
+  box-shadow: none;
+  border: 2px solid;
 }
 
 .rhap_main {
@@ -28,14 +30,19 @@
   order: 2;
 }
 
+.rhap_progress-bar {
+  color: #C90000 !important;
+}
+
 /* Hide rewind and forward buttons */
 .rhap_rewind-button,
 .rhap_forward-button {
   display: none;
 }
 
+/* Play/Pause button */
 button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button {
-  color: #C90000;
+  color: #FF91FB;
 }
 
 /* hiding audio player components */

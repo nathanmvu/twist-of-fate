@@ -14,7 +14,7 @@ const MusicPlayer = () => {
 
   return (
     <div className="flex justify-center items-center vh-100"> {/* Full viewport height and center content */}
-      <div className="w-50"> {/* Wrapper with 50% width */}
+      <div className="w-30"> {/* Wrapper with 50% width */}
         <AudioPlayer
           src={audioSrc}
           onPlay={handlePlay}
@@ -22,7 +22,7 @@ const MusicPlayer = () => {
           customVolumeControls={[]} // Remove volume controls
           // You can also add custom classNames here if needed
         />
-        {isPlaying && <p className="tc">Now playing!</p>} {/* Centered text */}
+        {isPlaying && <p className="tc mt-2">Now playing!</p>} {/* Centered text */}
       </div>
     </div>
   );
