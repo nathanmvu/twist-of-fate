@@ -7,6 +7,8 @@ const CustomMusicPlayer = () => {
   const audioSrc = 'https://storage.googleapis.com/music-playlists/%5BCR-34%5D%20Shinichi%20Atobe%20-%20Ship-Scope/thinredline';
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const audioRef = useRef(new Audio(audioSrc));
 
   // Play or pause the audio when isPlaying changes
@@ -16,15 +18,18 @@ const CustomMusicPlayer = () => {
 
   // Update progress when audio is playing
   useEffect(() => {
-    const updateProgress = () => {
+    console.log('updating')
+    const updateProgressAndTime = () => {
       const { currentTime, duration } = audioRef.current;
       setProgress((currentTime / duration) * 100);
+      setCurrentTime(currentTime);
+      setDuration(duration);
     };
 
-    audioRef.current.addEventListener('timeupdate', updateProgress);
+    audioRef.current.addEventListener('timeupdate', updateProgressAndTime);
 
     return () => {
-      audioRef.current.removeEventListener('timeupdate', updateProgress);
+      audioRef.current.removeEventListener('timeupdate', updateProgressAndTime);
     };
   }, []);
 
@@ -38,6 +43,17 @@ const CustomMusicPlayer = () => {
     setProgress(newProgress);
   };
 
+  /**
+   * Format time for progress
+   * @param {*} time 
+   * @returns 
+   */
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
+  
   return (
     <div className="musicPlayerContainer">
       <div className="audioPlayerWrapper">
@@ -46,11 +62,24 @@ const CustomMusicPlayer = () => {
         ) : (
           <PlayIcon color="#FF91FB" size="48px" onClick={handlePlayPause} />
         )}
-        <input 
-          type="range" 
-          value={progress} 
-          onChange={handleProgressChange} 
-        />
+        <div className="progressContainer">
+          {progress === 0 ? 
+          (
+            <span className="f4 lh-copy">tune in</span>
+          ) : (
+            <>
+              <input 
+                type="range" 
+                className="progressBar"
+                value={progress} 
+                onChange={handleProgressChange} 
+              />
+              <div className="timeInfo">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
