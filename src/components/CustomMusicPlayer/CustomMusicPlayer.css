@@ -30,6 +30,23 @@ button {
   cursor: pointer;
 }
 
+.progressContainer {
+  width: 100%;
+  display: flex;
+  align-items: center; /* Vertically centers the contents */
+  justify-content: space-between; /* Positions the children with space between them */
+}
+
+.progressBar {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.timeInfo {
+  white-space: nowrap;
+}
+
+
 .audioPlayerWrapper input[type='range'] {
   width: 100%; 
   cursor: pointer;

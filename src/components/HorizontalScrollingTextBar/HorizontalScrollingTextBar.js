@@ -11,7 +11,7 @@ const HorizontalScrollingTextBar = () => {
         {scrollingText.map((text, textIndex) => (
           Array(repetitions).fill(null).map((_, repIndex) => (
             <React.Fragment key={textIndex + '-' + repIndex}>
-              <span className="scrolling-text courier f4 lh-copy">{text}</span>
+              <span className="scrolling-text code f5 lh-copy">{text}</span>
               <span className="separator"></span> {/* Invisible separator */}
             </React.Fragment>
           ))

@@ -10,7 +10,7 @@ import MusicPlayer from '../components/CustomMusicPlayer/CustomMusicPlayer';
 
 const Home = () => {
   return (
-    <div className="home flex flex-col h-screen">
+    <div className="home flex flex-column vh-100">
       <HeaderImage />
       <HorizontalScrollingTextBar />
       <MusicPlayer />
@@ -19,7 +19,3 @@ const Home = () => {
 }
 
 export default Home;
-
-
-
-// export {Home, PostIt}
