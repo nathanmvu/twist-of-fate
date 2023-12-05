@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css'
-// This import isn't working
-// TODO: react/js formatting conventions?
 
-// TODO: turn into marquee, have text constantly wrap?
 import HeaderImage from '../components/HeaderImage/HeaderImage';
 import HorizontalScrollingTextBar from '../components/HorizontalScrollingTextBar/HorizontalScrollingTextBar';
 import MusicPlayer from '../components/CustomMusicPlayer/CustomMusicPlayer';
+import TextIdWheel from '../components/TextIdWheel/TextIdWheel';
 
 const Home = () => {
   return (
@@ -14,6 +12,7 @@ const Home = () => {
       <HeaderImage />
       <HorizontalScrollingTextBar />
       <MusicPlayer />
+      <TextIdWheel/>
     </div>
   )
 }
