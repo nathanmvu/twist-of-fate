@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './TextIdWheel.css';
 import trackIds from '../../assets/track_ids.txt'
+import Papa from 'papaparse';
+
+// Papa.parse(csvText, {
+//   header: false,
+//   complete: (result) => {
+//     console.log(result.data);
+//   },
+// });
 
 const TextIdWheel = () => {
   const [fileContent, setFileContent] = useState('');
@@ -13,6 +21,14 @@ const TextIdWheel = () => {
       try {
         const response = await fetch(trackIds); // path to your file
         const content = await response.text();
+        
+        Papa.parse(content,{
+            header: false,
+            complete:(result)=>{
+                console.log(result.data);
+            },
+        });
+
         setFileContent(content);
       } catch (error) {
         console.error('Error fetching data:', error);
