@@ -1,1 +1,4 @@
-Tears in the Typing Pool, Broadcast, 00:00
+title,artist,timeStamp
+Tears in the Typing Pool,Broadcast,0
+Worst Ever Contender,Rezzet,1
+snarky,quannnic,2

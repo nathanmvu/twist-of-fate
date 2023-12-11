@@ -10,8 +10,15 @@ import Papa from 'papaparse';
 //   },
 // });
 
+// const getTextFromSliderValue = () => {
+//     const index = Math.floor((sliderValue / 100) * texts.length);
+//     return texts[index];
+//   };
+
 const TextIdWheel = () => {
   const [fileContent, setFileContent] = useState('');
+  const [titleArray, setTitleArray] = useState([]);
+  const [columnData, setColumnData] = useState({});
 
   useEffect(() => {
     console.log('swag')
@@ -21,11 +28,25 @@ const TextIdWheel = () => {
       try {
         const response = await fetch(trackIds); // path to your file
         const content = await response.text();
-        
         Papa.parse(content,{
-            header: false,
+            header: true,
             complete:(result)=>{
+                
                 console.log(result.data);
+                setTitleArray((prevTitleArray) => [...prevTitleArray, ...result.data]);
+                // result.data contains the parsed CSV data
+                // Separate the data into columns
+                const columns = Object.keys(result.data[0]);
+
+                // Initialize an object to store column arrays
+                const newData = {};
+                columns.forEach((column) => {
+                    newData[column] = result.data.map((row) => row[column]);
+                });
+
+                // Update the state with the new column data
+                setColumnData(newData);
+                
             },
         });
 
@@ -36,11 +57,16 @@ const TextIdWheel = () => {
     };
 
     fetchData();
-  }, []);
+    }, []);
+
+const titles = columnData['title'] || [];
+const artists = columnData['artist'] || [];
+const timeStamps = columnData['timeStamp'] || [];
 
   return (
     <div>
-      <pre>{fileContent}</pre>
+      <pre>{titles}</pre>
+      <pre>{artists}</pre>
     </div>
   );
 };
