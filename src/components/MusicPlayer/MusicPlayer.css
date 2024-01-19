@@ -1,77 +1,59 @@
-/* Main player container */
 .musicPlayerContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  transform: translateY(-10%); /* Slightly shift upwards */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to the exact center */
+  max-height: calc(100vh - 60px); /* Example: 60px accounts for header */
+  z-index: 10; /* Ensure it's above the background elements */
+  width: 100%; /* Adjust if necessary */
 }
 
 .audioPlayerWrapper {
-  width: 80%;
-}
-
-.rhap_container {
-  border-radius: 30px;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align items vertically in the center */
-  justify-content: flex-start; /* Align items to the start */
-  padding: 1rem 1.2rem 1rem 1rem; /* top, right, bottom, left */
-  box-shadow: none;
-  border: 2px solid;
-}
-
-.rhap_main {
-  flex-direction: row; /* Arrange children in a row */
-  align-items: center; /* Center items vertically */
-  justify-content: flex-start; /* Start aligning items from the left */
-  width: 100%; /* Full width */
+  display: flex;
+  align-items: center;
   gap: 1rem; /* Space between items */
+  padding: 10px 20px 10px 10px; /* top, right, bottom, left */
+  border-radius: 30px;
+  border: 2px solid;
+  width: 40%;
 }
 
-/* Main controls (play/pause) section */
-.rhap_stacked .rhap_controls-section {
-  width: auto;
-  margin-top: 0;
-  flex-grow: 0;
-  order: 1;
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #FF91FB;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Progress section */
-.rhap_progress-section {
-  order: 2;
+.progressContainer {
+  width: 100%;
+  display: flex;
+  align-items: center; /* Vertically centers the contents */
+  justify-content: space-between; /* Positions the children with space between them */
 }
 
-.rhap_progress-bar {
-  color: #C90000 !important;
+.progressBar {
+  flex-grow: 1;
+  margin-right: 20px;
 }
 
-/* Hide rewind and forward buttons */
-.rhap_rewind-button,
-.rhap_forward-button {
-  display: none;
+.timeInfo {
+  white-space: nowrap;
 }
 
-/* Play/Pause button */
-button.rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button {
-  color: #FF91FB;
+
+.audioPlayerWrapper input[type='range'] {
+  width: 100%; 
+  cursor: pointer;
 }
 
-/* hiding audio player components */
-div .react-h5-audio-player .rhap_progress-section,
-div .react-h5-audio-player .rhap_progress-container,
-div .react-h5-audio-player .rhap_time,
-div .react-h5-audio-player .rhap_controls-section,
-button.rhap_button-clear.rhap_main-controls-button.rhap_forward-button,
-button.rhap_button-clear.rhap_main-controls-button.rhap_rewind-button {
-  display: none;
-}
-
-@media (min-width: 768px) { 
-  .musicPlayerContainer {
-    transform: translateY(-10%);
-  }
+@media (max-width: 767px) { 
   .audioPlayerWrapper {
-    width: 30%;
+    width: 80%; 
   }
 }

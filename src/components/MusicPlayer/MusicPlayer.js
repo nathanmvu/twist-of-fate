@@ -1,29 +1,58 @@
-import React, { useState } from 'react';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css'; // default styles
+import React, { useState, useRef, useEffect } from 'react';
 import './MusicPlayer.css';
+import PlayIcon from '../../assets/icons/playIcon';
+import PauseIcon from '../../assets/icons/pauseIcon';
 
-const MusicPlayer = () => {
-  const audioSrc = 'https://storage.googleapis.com/music-playlists/%5BCR-34%5D%20Shinichi%20Atobe%20-%20Ship-Scope/thinredline';
-  const [isPlaying, setIsPlaying] = useState(false);
+const CustomMusicPlayer = (props) => {
+  const {
+    isPlaying,
+    handlePlayPause,
+    progress,
+    handleProgressChange,
+    currentTime,
+    duration,
+  } = props;
 
-  const handlePlay = () => {
-      console.log("Playback started");
-      setIsPlaying(true);
+  /**
+   * Format time for progress
+   * @param {*} time 
+   * @returns 
+   */
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
-
+  
   return (
     <div className="musicPlayerContainer">
-      <div className="audioPlayerWrapper"> 
-        <AudioPlayer
-          src={audioSrc}
-          onPlay={handlePlay}
-          customAdditionalControls={[]} // Remove additional controls like volume
-          customVolumeControls={[]} // Remove volume controls
-        />
+      <div className="audioPlayerWrapper">
+        {isPlaying ? (
+          <PauseIcon color="#FF91FB" size="48px" onClick={handlePlayPause} />
+        ) : (
+          <PlayIcon color="#FF91FB" size="48px" onClick={handlePlayPause} />
+        )}
+        <div className="progressContainer">
+          {progress === 0 ? 
+          (
+            <span className="f4 lh-copy">tune in</span>
+          ) : (
+            <>
+              <input 
+                type="range" 
+                className="progressBar"
+                value={progress} 
+                onChange={handleProgressChange} 
+              />
+              <div className="timeInfo">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default MusicPlayer;
+export default CustomMusicPlayer;
