@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './TextIdWheel.css';
 import trackIds from '../../assets/track_ids.txt'
 import Papa from 'papaparse';
 
-// Papa.parse(csvText, {
-//   header: false,
-//   complete: (result) => {
-//     console.log(result.data);
-//   },
-// });
+const SelectTrackFromTimestamp = ({playerTimeStamp, timestamps, titles, artists})=> {
+  useEffect(() => {
+    console.log('playerTimeStamp',playerTimeStamp.current);
+  }, [playerTimeStamp])
+  
+};
 
-// const getTextFromSliderValue = () => {
-//     const index = Math.floor((sliderValue / 100) * texts.length);
-//     return texts[index];
-//   };
 
 const TextIdWheel = () => {
   const [fileContent, setFileContent] = useState('');
@@ -71,7 +67,7 @@ const timeStamps = columnData['timeStamp'] || [];
   );
 };
 
-export default TextIdWheel;
+export {TextIdWheel, SelectTrackFromTimestamp};
 
 
 // algorithm idea for tying music player progression to track id display
