@@ -5,6 +5,42 @@ html, body, #root {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+}
+
 code {
   font-family: Consolas, monaco, monospace; /* This is redundant if the body is already using this font */
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.vh-100 {
+  min-height: 100vh;
+}
+
+.pa4 {
+  padding: 2rem;
+}
+
+.code {
+  font-family: Consolas, monaco, monospace;
+}
+
+.f4 {
+  font-size: 1.5rem;
+}
+
+.f5 {
+  font-size: 1.25rem;
+}
+
+.lh-copy {
+  line-height: 1.5;
 }

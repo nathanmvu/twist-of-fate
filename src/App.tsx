@@ -1,6 +1,5 @@
 import './index.css';
-import 'tachyons'
-import Home from './pages/Home'
+import Home from './pages/Home';
 
 function App() {
   return (
